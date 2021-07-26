@@ -1,1 +1,10 @@
+.env
+._*
+/log/*
+/mysql/*
 
+/app/*
+
+/docker/build_file/*
+
+!.placeholder
