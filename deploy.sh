@@ -18,13 +18,13 @@ if [ -f $LOCK_FILE ]; then
 fi
 
 # # 建立 lock file
-# touch $LOCK_FILE
+touch $LOCK_FILE
 
-# # 檢查鎖定檔案是否成功被建立
-# if [ ! -f $LOCK_FILE ]; then
-#   echo "無法串件檔案"
-#   exit 1
-# fi
+# 檢查鎖定檔案是否成功被建立
+if [ ! -f $LOCK_FILE ]; then
+  echo "無法串件檔案"
+  exit 1
+fi
 
 echo "*************"
 
