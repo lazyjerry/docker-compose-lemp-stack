@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## 配置啟動
+
 cd ./
 
 echo "*************"
@@ -8,12 +10,19 @@ pwd
 docker network create jerry-network || true
 echo "*************"
 
+# 檢查鎖定檔案
+if [ -f "./.env" ]; then
+  echo ".env 檔案存在\n"
+else
+  echo ".env 檔案不存在"
+  exit 1
+fi
 
 LOCK_FILE='./deploy.lock';
 
 # 檢查鎖定檔案
 if [ -f $LOCK_FILE ]; then
-  echo "LOCK 檔案存在"
+  echo "LOCK 檔案存在\n"
   exit 1
 fi
 
