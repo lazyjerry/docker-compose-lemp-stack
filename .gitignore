@@ -1,12 +1,21 @@
 .env
 ._*
 
+deploy.lock
 
-/log/*
-/mysql/*
+/lemp/log/*
+/lemp/mysql/*
+/lemp/mysql/config/*
+/lemp/mysql/data/*
+/lemp/mysql/log/*
 
-/app/*
+/lemp/nginx/*
+/lemp/nginx/config/*
+/lemp/nginx/config/certs/*
 
-/docker/build_file/mysql/*
+
+/lemp/php-app/*
+
+/lemp/docker/build_file/mysql/*
 
 !.placeholder

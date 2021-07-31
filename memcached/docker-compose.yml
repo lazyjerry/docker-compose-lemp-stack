@@ -1,0 +1,17 @@
+version: '3.9'
+networks:
+  my-network:
+    external:
+      name: jerry-network
+services:
+    memcached:
+        build:
+            context: ./docker
+            dockerfile: memcached.Dockerfile
+        container_name: ${APP_NAME:?err}-memcached
+        restart: 'on-failure'
+        ports:
+            - '11211:11211'
+        networks:
+            - my-network
+    

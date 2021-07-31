@@ -1,4 +1,4 @@
-FROM mariadb:10.2
+FROM mariadb:latest
 
 COPY build_file/mysql/zzz_custom.cnf /etc/mysql/conf.d/zzz_custom.cnf
 

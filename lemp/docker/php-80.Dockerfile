@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:8.0-fpm
 
 # Download script to install PHP extensions and dependencies
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
@@ -18,6 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
       gd \
       intl \
       ldap \
+      memcache \
       memcached \
       mysqli \
       opcache \

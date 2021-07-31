@@ -17,25 +17,16 @@ if [ -f $LOCK_FILE ]; then
   exit 1
 fi
 
-# # 建立 lock file
-touch $LOCK_FILE
-
-# 檢查鎖定檔案是否成功被建立
-if [ ! -f $LOCK_FILE ]; then
-  echo "無法串件檔案"
-  exit 1
-fi
-
 echo "*************"
 
 echo "檢查結束"
 
-cat ./docker-compose.yml
+# cat ./docker-compose.yml
 
 echo "*************"
-echo "copy file"
+echo "copy file from ./mysql/config/custom.cnf"
 chmod 755 ./config/mysql/custom.cnf
-cp ./config/mysql/custom.cnf ./docker/build_file/mysql/zzz_custom.cnf
+cp ./mysql/config/custom.cnf ./docker/build_file/mysql/zzz_custom.cnf
 
 chmod -R 755 ./app/
 rm -rf ./mysql/*
@@ -50,6 +41,16 @@ echo "go"
 echo "*************"
 
 # docker-compose up
+# docker-compose -f  docker-compose.yml -f docker-compose.override.yml up -d
 docker-compose up -d
 
+
+# # 建立 lock file
+touch $LOCK_FILE
+
+# 檢查鎖定檔案是否成功被建立
+if [ ! -f $LOCK_FILE ]; then
+  echo "無法創建檔案"
+  exit 1
+fi
 
