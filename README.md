@@ -1,6 +1,6 @@
 ### Fork by https://github.com/stevenliebregt/docker-compose-lemp-stack
 ### PHP 設定參考（docker-php-extension-installer）： https://github.com/mlocati/docker-php-extension-installer
-
+### Linux Capabilities 參考： https://man7.org/linux/man-pages/man7/capabilities.7.html
 
 # Docker Compose LEMP Stack
 
@@ -10,11 +10,13 @@ This repository contains a little `docker-compose` configuration to start a `LEM
 
 1. 可以從 .env 調整 PHP 版本
 1. 可以從 mysql.Dockerfile 調整 MYSQL 版本
+1. 新增 memcached 功能
+1. 跟目錄中有好用工具
 
 
 ## Configuration
-1. 複製設定檔案 `cp .env.sample .env`
-1. 修改 `.env` 裡面的 `APP_NAME`  `MYSQL_ROOT_PASSWORD` 和 `PHP_VERSION` 等參數。 `PHP_VERSION` 在 docker 中 Dockerfile 可以設定，目前有 pure \ 73 \ 80 三個版本可選， pure 使用 PHP 8.0 ，差異在沒有安裝一堆奇怪的擴充
+1. 複製資料夾內設定檔案 `cp .env.sample .env`
+1. 修改 `.env` 裡面的 `APP_NAME`  `MYSQL_ROOT_PASSWORD` 和 `PHP_VERSION` 等等參數。 `PHP_VERSION` 在 docker 中 Dockerfile 可以設定，目前有 pure \ 73 \ 80 三個版本可選， pure 使用 PHP 8.0 ，差異在沒有安裝一堆奇怪的擴充
 1. 在 ./config/mysql 中選擇適合的 mysql 配置，修改檔案名稱把要的那個 disable 去掉，記得開一個就好，或是可以開一個自己喜歡的 .cnf 檔案
 1. 在 ./config/nginx 中配置需要 nginx 設定
 1. 執行 `sh deploy.sh` 
